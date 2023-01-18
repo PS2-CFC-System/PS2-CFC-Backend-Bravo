@@ -54,4 +54,23 @@ export default {
             });
         }
     },
+    findUserEmail: async (req, res) => {
+        try {
+            const email = req.params;
+
+            const result = await userUseCases.findUserEmail(email);
+            
+            return res.status(200).json({
+                status: 'success',
+                message: 'User listened',
+                payload: result
+            });
+        } catch (err) {
+            return res.status(400).json({
+                status: 'error',
+                message: err.message || 'Unexpeted error',
+                payload: null
+            });
+        }
+    }
 }

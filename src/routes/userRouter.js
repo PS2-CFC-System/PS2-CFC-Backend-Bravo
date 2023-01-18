@@ -14,6 +14,11 @@ userRouter.route('/')
 /*
     GET users/findAllInstructors
 */
-userRouter.route('/findAllInstructors').get(userController.findAllInstructors);    
+userRouter.route('/findAllInstructors').get(userController.findAllInstructors);
+
+/*
+    GET users/findUserEmail/:email
+*/
+userRouter.route('/findUSerEmail/:email').get(userController.findUserEmail)
 
 export default userRouter;

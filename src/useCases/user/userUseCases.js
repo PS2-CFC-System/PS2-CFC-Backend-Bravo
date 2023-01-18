@@ -86,6 +86,15 @@ export default {
         
     },
 
+    findUserEmail: async (email) => {
+        const user = await UserModel.findByEmail(email);
+
+        if(user.length <= 0){
+            throw new Error('Falha ao busca usuário, verifique se o e-mail é válido')
+        }
+        return user;
+    },
+
     findAllInstructorsUseCase: async () => {
         return await UserModel.findAllInstructors();
     },
